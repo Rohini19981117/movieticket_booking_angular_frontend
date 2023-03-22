@@ -1,0 +1,147 @@
+<div class="formalign">
+    <form #movieForm="ngForm" (ngSubmit)="onMovieSubmit();movieForm.reset()">
+        <div> 
+            <div class="form-group">
+                <div class="col text-center p-2 mb-3 bg-light">
+                    <span class="fs-3">Add NEW MOVIE</span><br>
+                </div>
+            </div>
+
+            <div class="form-group">
+             <div class="upload">
+                <img [src]="imageUrl" width="200" height="150"  alt="moviepic"><br>
+                <div class="round">
+                    <input type="file" (change)="onSelect($event)">
+                </div><br>
+              </div>
+            </div>
+          
+        <div class="form-group">
+            <label for="movieGenre">Choose Movie Genre:</label>
+            <select name="movieGenre" id="movieGenre" [(ngModel)]="movieInput.movieGenre" #movieGenre="ngModel" required>
+            <option value="Action"> Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+            <option value="Romance">Romance</option>
+            <option value="Thriller">Thriller</option>
+             </select>
+            <br><br>
+         </div>
+
+
+            <div class="form-group">
+                <label for="movieName">Movie Name</label>
+                <input type="text" class="form-control" id="movieName"
+                [(ngModel)]="movieInput.movieName" name="movieName" 
+                #movieName = "ngModel" required>
+                <div *ngIf=" movieName && movieName.touched && movieName.invalid"
+                class="alert alert-danger">Movie Name is required</div>
+            </div>
+
+       
+
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="time" min="01:00:00" max="04:59:00" class="form-control" id="duration"
+                [(ngModel)]="movieInput.duration" name="duration" 
+                #duration = "ngModel" required>
+                <div *ngIf="duration && duration.touched && duration.invalid"
+                 class="alert alert-danger">Please provide duration</div>
+            </div><br>
+             
+
+            <div class="form-group">
+                <label for="certificate">Certificate:</label>
+                <select name="certificate" id="certificate" [(ngModel)]="movieInput.certificate" #certificate="ngModel" required>
+                <option value="U"> U Certificate</option>
+                <option value="UA">U/A Certificate</option>
+                <option value="A">A Certificate</option>
+                <option value="S">S Certificate</option>
+                 </select>
+                <br><br>
+             </div>
+            
+            <div class="form-group">
+                <label for="releaseDate">Release Date</label>
+                <input type="date" class="form-control" min="2023-01-01" id="releaseDate"
+                [(ngModel)]="movieInput.releaseDate" name="releaseDate" 
+                #releaseDate = "ngModel" required>
+                <div *ngIf="releaseDate && releaseDate.touched && releaseDate.invalid"
+                class="alert alert-danger">Please provide the movie release date</div>
+                 </div><br>
+            </div>
+
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea rows="7" cols="50" class="form-control" id="description"
+                    Enter text here...
+                [(ngModel)]="movieInput.description" name="description" 
+                #description = "ngModel" required></textarea>
+                <div *ngIf="description && description.touched && description.invalid"
+                  class="alert alert-danger">Please write some description
+                </div>
+            </div><br>
+           
+
+            <h4>Cast</h4>
+            <!-- <label>Address</label> -->
+            <div class="px-5" ngModelGroup="cast">
+            <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name"
+                 [(ngModel)]="movieCast[0].castName" name="name" #name="ngModel" required>
+            <div class="form-check">
+               <label for="actor"><input type="radio" name="profession" [(ngModel)]="movieCast[0].profession" #cast1="ngModel" value="actor" id="actor" required>Actor</label>
+               <label for="director"><input type="radio" name="profession" [(ngModel)]="movieCast[0].profession" #cast1="ngModel" value="director" id="director" required>Director</label>
+               <label for="producer"><input type="radio" name="profession" [(ngModel)]="movieCast[0].profession" #cast1="ngModel" value="producer" id="producer" required> Producer</label>
+            </div><br>
+            </div>
+
+            <div class="form-group">
+                <label for="name1">Name</label>
+                <input type="text" class="form-control" id="name1"
+                [(ngModel)]="movieCast[1].castName" name="name1" #name1="ngModel" required>
+             <div class="form-check">
+                 <label for="actor1"><input type="radio" name="profession1" [(ngModel)]="movieCast[1].profession" #cast2="ngModel" value="actor" id="actor1" required> Actor</label>
+                 <label for="director1"><input type="radio" name="profession1" [(ngModel)]="movieCast[1].profession" #cast2="ngModel" value="director" id="director1" required>Director</label>
+                 <label for="producer1"><input type="radio" name="profession1" [(ngModel)]="movieCast[1].profession" #cast2="ngModel" value="producer" id="producer1" required> Producer</label>
+             </div><br>
+            </div>
+               
+
+             <div class="form-group">
+                    <label for="name2">Name</label>
+                    <input type="text" class="form-control" id="name2"
+                    [(ngModel)]="movieCast[2].castName" name="name2" #name2="ngModel" required><br>
+                  <div class="form-check">
+                    <label for="actor2"><input type="radio" name="profession2" [(ngModel)]="movieCast[2].profession" #cast3="ngModel" value="actor" id="actor2" required> Actor</label>
+                    <label for="director2"><input type="radio" name="profession2" [(ngModel)]="movieCast[2].profession" #cast3="ngModel" value="director" id="director2" required>Director</label>
+                    <label for="producer2"><input type="radio" name="profession2" [(ngModel)]="movieCast[2].profession" #cast3="ngModel" value="producer" id="producer2" required> Producer</label>
+                  </div><br>
+             </div>
+
+                <div class="form-group">
+                        <label for="name3">Name</label>
+                        <input type="text" class="form-control" id="name3"
+                        [(ngModel)]="movieCast[3].castName" name="name3" #name3="ngModel" required><br>
+                    <div class="form-check">
+                        <label for="actor3"><input type="radio" name="profession3" [(ngModel)]="movieCast[3].profession" #cast4="ngModel" value="actor" id="actor3" required> Actor</label>
+                        <label for="director3"><input type="radio" name="profession3" [(ngModel)]="movieCast[3].profession" #cast4="ngModel" value="director" id="director3" required>Director</label>
+                        <label for="producer3"><input type="radio" name="profession3" [(ngModel)]="movieCast[3].profession" #cast4="ngModel" value="producer" id="producer3" required> Producer</label>
+                    </div><br>
+                </div>
+                </div>
+              
+          <div class="form-group">
+            <div class="col-6 offset-3"> 
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary"  [disabled]="!movieForm.form.valid">Add Movie</button>
+                </div> <br>
+               
+            </div>
+        </div>
+    </form>
+    </div>

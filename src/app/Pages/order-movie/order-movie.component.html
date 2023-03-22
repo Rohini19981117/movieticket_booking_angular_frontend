@@ -1,0 +1,97 @@
+
+    <div class="display-container">
+        <div class="display-info">
+            <p class="text-parameter">Movie Name</p> 
+            <p class="small-info">{{movieToOrder.movieName}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Booking Time</p>
+            <p class="small-info">{{bookingMovie.bookingTime}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Booking Date</p>
+            <p class="small-info">{{bookingMovie.bookingDate}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Movie Duration</p>
+            <p class="small-info">{{movieToOrder.duration}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Seats Booked</p>
+            <div class="small-info-group">
+                <div class="show-seats-by-grp">
+                    <h6 class="small-info" style="display: block;">PREMIUM</h6>
+                    <p class="premium" *ngFor="let seat of premiumSeats">
+                        {{seat.seatRow + "-" + seat.seatNumber+ ", "}}
+                    </p>
+                </div>
+
+                <div class="show-seats-by-grp">
+                    <h6 class="small-info" style="display: block;">GOLD</h6>
+                    <p class="small-info gold" *ngFor="let seat of goldSeats">
+                        {{seat.seatRow + "-" + seat.seatNumber + ", "}}
+                    </p>
+                </div>
+
+                <div class="show-seats-by-grp">
+                    <h6 class="small-info" style="display: block;">SILVER</h6>
+                    <p class="small-info premium" *ngFor="let seat of silverSeats">
+                        {{seat.seatRow + "-" + seat.seatNumber + ", "}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="display-container">
+        <form #orderMovieForm="ngForm" (ngSubmit)="onSubmit();" action="">
+            <div>
+                <div class="form-group">
+                    <div class="form-input">
+                        <label class="form-input-text" for="cardType">Select Card</label>
+                        <select id="cardType" class="form-control" name="cardType"
+                        [(ngModel)]="orderToPlaced.cardType" #cardType="ngModel"
+                        required>
+                            <option value="Debit">Debit</option>
+                            <option value="Credit">Credit</option>
+                            <option value="Visa">Visa</option>
+                        </select>
+                    </div>
+                        <div [hidden]="cardType.valid" class="form-error">
+                            <div *ngIf="cardType.errors?.['required']">
+                                Card Type is required
+                            </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-input">
+                        <label class="form-input-text" for="bank">Bank</label>
+                        <select name="bank" id="bank" (change)="onSelectDiscount(orderToPlaced.bank)" class="form-control"
+                        [(ngModel)]="orderToPlaced.bank" #bank="ngModel"
+                        required>
+                            <option value="ICICI">ICICI {{getDiscountByBankName('ICICI')?.discountPercentage}}%</option>
+                            <option value="Axis">Axis {{getDiscountByBankName('Axis')?.discountPercentage}}%</option>
+                            <option value="HDFC">HDFC {{getDiscountByBankName('HDFC')?.discountPercentage}}%</option>
+                            <option value="SBI">SBI {{getDiscountByBankName('SBI')?.discountPercentage}}%</option>
+                            <option value="Central">Central {{getDiscountByBankName('Central')?.discountPercentage}}%</option>
+                        </select>
+                    </div>
+                    <div [hidden]="bank.valid" class="form-error">
+                        <div *ngIf="bank.errors?.['required']">
+                            Bank is required
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: '2vh';">
+                    <h2>Total Price: &#8377;{{withoutDiscountPrice}} - &#8377;{{discountAmount}} = &#8377;{{finalAmountToPay}}</h2>
+                </div>
+
+                <button type="submit" class="btn btn-success form-submit form-input"
+                [disabled]="!orderMovieForm.form.valid">
+                    Pay
+                </button>
+            </div>
+        </form>
+    </div>

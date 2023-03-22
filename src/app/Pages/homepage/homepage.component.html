@@ -1,0 +1,49 @@
+<div *ngFor="let displayMovies of movieCategoriesToDisplay.movies; let i = index">
+    <div *ngIf="displayMovies?.length >= 1" class="info-container">
+        <h3 class="info-heading">{{movieCategoriesToDisplay.category_name[i]}}</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div (click)="navigateToMovieDetails(displayMovies[0]?.movieName)" class="movie-card">
+                        <div class="movie-image">
+                            <img src="{{displayMovies[0]?.imageURL}}" alt="">
+                        </div>
+                        <div class="movie-name">
+                            <p>{{displayMovies[0]?.movieName}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div *ngIf="displayMovies?.length >= 2" (click)="navigateToMovieDetails(displayMovies[1]?.movieName)" class="movie-card">
+                        <div class="movie-image">
+                            <img src="{{displayMovies[1]?.imageURL}}" alt="">
+                        </div>
+                        <div class="movie-name">
+                            <p class="">{{displayMovies[1]?.movieName}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div *ngIf="displayMovies?.length >= 3" (click)="navigateToMovieDetails(displayMovies[2]?.movieName)" class="movie-card">
+                        <div class="movie-image">
+                            <img src="{{displayMovies[2]?.imageURL}}" alt="">
+                        </div>
+                        <div class="movie-name">
+                            <p class="">{{displayMovies[2]?.movieName}}</p>
+                        </div>                 
+                    </div>
+                </div>
+                <div class="col">
+                    <div *ngIf="displayMovies?.length >= 4" (click)="navigateToMovieDetails(displayMovies[3]?.movieName)" class="movie-card">
+                        <div class="movie-image">
+                            <img src="{{displayMovies[3]?.imageURL}}" alt="">
+                        </div>
+                        <div class="movie-name">
+                            <p class="">{{displayMovies[3]?.movieName}}</p>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

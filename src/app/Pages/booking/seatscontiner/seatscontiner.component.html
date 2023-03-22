@@ -1,0 +1,26 @@
+<div class="full cotainer">
+    <div class="container">
+      <div class="movie-container">
+        <h5 style="text-align: center;">please select your desired seat</h5>
+        <ul class="showcase"><li><div class="seat Available">1</div>
+            <small>Available</small></li>
+          <li><div class="seat booked">1</div>
+            <small>Selected</small></li>
+          <li><div class="seat occupied">1</div>
+            <small>Occupied</small></li>    
+        </ul>
+    </div>
+
+    <div *ngFor="let seatRow of theaterSeats; let row = index" class="row">
+      <small *ngIf="row==0 || row==2 || row==6" style="color: darkorange; text-align: center;">{{rowTypeMap.get(row)}}</small>
+      {{myRows[row]}}
+      <button [disabled]="seat.seatStatus=='occupied'" *ngFor="let seat of seatRow;let col = index"  
+         class="seat" (click)="choseSeat(row, col)"
+         [ngClass]="seat.seatStatus=='Available'? 'Available':
+         (seat.seatStatus=='booked' ? 'booked':'occupied')">
+          {{col+1}}
+      </button>
+    </div>
+<div class="screen"><h6 style="text-align: center; color: aliceblue;">screen</h6></div>
+</div>
+

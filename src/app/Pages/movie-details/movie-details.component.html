@@ -1,0 +1,37 @@
+<div [hidden] ="isLoaded">
+    <div class="card mb-10 main-class" [ngStyle]="{'background-img':singleMovie?.imageURL}" style="width:auto; max-height: 500px; margin-bottom: 50px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{singleMovie?.imageURL}}" class="card-img" style="height: 90%;" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title" style="font-weight: bold; color: white;">{{singleMovie?.movieName}}</h2> <br>
+              <!-- <h4 class="card-text" style="font-weight: bold; color: white;">Stars: {{singleMovie.review[0].stars}}</h4> <br> -->
+              <h6 class="card-text" style="font-weight: bold; color: white;"><small>Duration: {{singleMovie?.duration}}</small></h6> <br>
+              <h6 class="card-text" style="font-weight: bold; color: white;"><small >{{singleMovie?.movieGenre}}</small></h6> <br>
+              <h6 class="card-text" style="font-weight: bold; color: white;"><small >Release date: {{singleMovie?.releaseDate}}</small></h6> <br>
+              <app-review-star></app-review-star>
+              <button type="button" (click)="bookTicketsPage(singleMovie?.movieName)" class="btn btn-primary btn-lg">Book tickets</button>        </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-10" style="max-width: 840px; max-height: 500px; margin-bottom: 20px;">
+        <h3>About the Movie</h3>
+  
+        <div>{{singleMovie?.description}}</div>
+      </div>
+  
+  
+      <h3>Cast</h3>
+      <div class="common">
+       <div *ngFor="let cast of singleMovie?.cast">
+         <h6 >{{cast.castName}} , </h6> 
+         <h6 >{{cast.profession}}</h6>
+      </div>
+    </div>
+
+    <app-review-component></app-review-component>
+    <app-review-comment></app-review-comment>
+  </div>

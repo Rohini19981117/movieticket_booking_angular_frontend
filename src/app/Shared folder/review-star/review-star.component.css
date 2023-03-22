@@ -1,0 +1,20 @@
+.star-container{
+    display: block;
+    /* border: 2px solid; */
+}
+.star-container i{
+    font-size:xx-large;
+}
+.star{
+    cursor:pointer;
+}
+
+i{
+    margin: 0;
+    padding: 0;
+    color: red;
+}
+
+.reverse{
+    transform: scaleX(-1);
+}

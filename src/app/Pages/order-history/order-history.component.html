@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Booking Date</th>
+            <th>Booking Time</th>
+            <th>Amount Paid</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of allOrders">
+            <td>{{order.booking.movie.movieName}}</td>
+            <td>{{order.booking.bookingDate}}</td>
+            <td>{{order.booking.bookingTime}}</td>
+            <td>&#8377; {{order.amount}}</td>
+            <td>
+                <a class="red-white" href="/order-history/{{order.orderId}}/single-order-details">View</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

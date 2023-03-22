@@ -1,0 +1,6 @@
+<div class="star-container">
+    <i *ngFor="let star of stars; let i = index"
+    (click)="postOrUpdateReviewStar(i, star);giveReview(star);" 
+     [ngClass]="!star.selected?'far':'fas'"
+     class=" fa-star star"></i>
+</div>

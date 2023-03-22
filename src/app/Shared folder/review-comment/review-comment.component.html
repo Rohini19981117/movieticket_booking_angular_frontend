@@ -1,0 +1,10 @@
+<div class="review-comment-container">
+    <form #reviewCommentForm="ngForm" (ngSubmit)="onSubmit();" action="">
+        <label for="comment" style="margin-left: 5%;" ><h4>Add Review</h4></label>
+        <textarea [(ngModel)]="reviewComment"
+         name="comment" id="comment" rows="5"
+         placeholder="{{oldComment}}"></textarea>
+
+        <button [disabled]="reviewComment.length==0" type="submit" style="margin:1% 0  0 5%;" class="btn btn-success">POST</button>
+    </form>
+</div>

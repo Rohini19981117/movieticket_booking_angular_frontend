@@ -1,0 +1,59 @@
+
+<div class="container1">
+  <form #bookingForm="ngForm" (change)="checkAllDetailsFilled(bookingForm);">
+
+<div class="form-group">   
+<div class="bookingdate">
+    <input type="date" id="bookingDate" name="bookingDate" value="2023-02-06" min="2023-01-06" max="2023-01-11" required #bookingdate="ngModel" [(ngModel)]="bookingInput.bookingDate">
+</div><br>
+</div>
+
+<h6 style="text-align: center;">choose your available Timings</h6>
+
+<div class="form-group" [class.has-error]="bookingTime.touched && bookingTime.invalid">
+
+  <div class="slot">
+    <!-- <div class="form-control"> -->
+      <label for="ten" class="control-label"><input type="radio" required  id="ten" name="bookingTime" #bookingTime="ngModel" [(ngModel)]="bookingInput.bookingTime" value="10:00">10:00</label>
+      <label for="two"><input type="radio" required id="two"name="bookingTime" #bookingTime="ngModel" [(ngModel)]="bookingInput.bookingTime" value="02:00"> 02:00</label>
+      <label for="nine"><input type="radio" id="nine" name="bookingTime" #bookingTime="ngModel" [(ngModel)]="bookingInput.bookingTime" value="09:00">09:00</label>
+   </div>
+   <span class="help-block" *ngIf="bookingTime.touched && bookingTime.invalid"> Booking Time is required</span>
+</div>
+
+<div class="form-group">
+<div class="form-check">
+  <div class="movietype">
+    <label for="movieFormat">Choose Movie Type:</label>
+      <select name="movieFormat" id="movieFormat" [(ngModel)]="bookingInput.movieFormat" required #movieFormat="ngModel">
+        <option value="2D">2D</option>
+        <option value="3D">3D</option>
+      </select>
+  </div>
+  </div>
+  </div>
+
+  <h6 style="text-align: center;">choose your Language</h6>
+  <div class="form-group">
+    <div class="slot">
+      <label for="hindi"><input type="radio" required name="movieLanguage" #movieLanguage="ngModel" [(ngModel)]="bookingInput.language" value="Hindi" id="hindi">Hindi</label>
+      <label for="english"><input type="radio" required name="movieLanguage" name="movieLanguage" #movieLanguage="ngModel"   [(ngModel)]="bookingInput.language" value="English" id="hindi" NgModel>English</label>
+    </div>
+ 
+  </div><br>
+
+<app-seatscontiner [hidden]="!canSelectSeats" (addSeatEvent)="addSeat($event)" (removeSeatEvent)="removeSeat($event)"></app-seatscontiner> 
+
+<div class="book">
+  <button type="submit" (click)="onSubmit(bookingForm)" class="btn btn-success" [disabled]="!bookingForm.form.valid || notSelected">Proceed</button>
+</div>
+</form>
+
+
+
+
+<!-- <h5>Thank you for booking </h5>
+<h6>Your booking date is:-{{bookingInput.bookingDate}}</h6>
+<h6>Your booking time is:-{{bookingInput.bookingTime}}</h6>
+<h6>Your booking movieFormat is:-{{bookingInput.movieFormat}}</h6>
+<h6>your booking language is:-{{bookingInput.language}}</h6> -->

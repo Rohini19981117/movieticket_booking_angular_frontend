@@ -1,0 +1,36 @@
+<form>
+    <div class="form-group">
+      <label for="filterText">Filter on title or genre:</label>
+      <input
+      placeholder="Search movie"
+        class="form-control mt-2"
+        type="text"
+        name="filterText"
+      [(ngModel)]="filterText"
+      style="width: 550px; text-align: center;"
+      />
+    </div>
+  </form>
+
+
+  <button type="button" class="btn btn-outline-primary" (click)="getMovieByGenreButtonClick('Action', 0)"> Action</button>
+  <button type="button" class="btn btn-outline-primary" (click)="getMovieByGenreButtonClick('Romance', 0)"> Romance</button>
+  <button type="button" class="btn btn-outline-primary" (click)="getMovieByGenreButtonClick('Drama', 0)"> Drama</button>
+
+ <div class="container">
+   
+     <div class="row">
+        <div class="card" *ngFor="let movie of allMovie | movieFilter: filterText">
+            <img src="{{movie.imageURL}}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{movie.movieName}}</h5>
+            <!-- <p class="card-text">{{movies[0].review[0].stars}}</p> -->
+            <a href="http://localhost:4200/movies/{{movie.movieName}}" class="btn btn-primary">Book a show</a>
+            </div>
+        </div>
+
+        <button (click)="getMovieByPaginationButtonClick(3 , 'next')" type="button" class="btn btn-outline-primary"> Next</button>
+        <button (click)="getMovieByPaginationButtonClick(3 , 'previous')" type="button" class="btn btn-outline-primary"> Previous</button>
+
+    </div>
+</div>

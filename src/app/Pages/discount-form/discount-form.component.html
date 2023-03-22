@@ -1,0 +1,44 @@
+<div class="display-container">
+    <form #discountForm="ngForm" (ngSubmit)="onSubmit();" action="">
+        <div >
+            <div class="form-group">
+                <div class="form-input">
+                    <label class="form-input-text" for="bank">Bank</label>
+                    <select name="bank" id="bank" class="form-control"
+                    [(ngModel)]="discountDetails.bankName" #bank="ngModel"
+                    (change)="updateDiscountPlaceholder(discountDetails.bankName)" required>
+                        <option value="ICICI">ICICI</option>
+                        <option value="Axis">Axis</option>
+                        <option value="HDFC">HDFC</option>
+                        <option value="SBI">SBI</option>
+                        <option value="Central">Central</option>
+                    </select>
+                </div>
+                <div [hidden]="bank.valid" class="form-error">
+                    <div *ngIf="bank.errors?.['required']">
+                        Bank is required
+                    </div>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <div class="form-input">
+                    <label class="form-input-text" for="discount">Discount To Offer (in percentage)</label>
+                    <input name="discount" id="discount" class="form-control"
+                    [(ngModel)]="discountInput" #discount="ngModel" placeholder="{{placeholderDiscountPercentage}}"
+                    required>
+                </div>
+                <div [hidden]="discount.valid" class="form-error">
+                    <div *ngIf="discount.errors?.['required']">
+                        Discount Percentage is required
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success form-submit form-input"
+            [disabled]="!discountForm.form.valid">
+                Set Discount
+            </button>
+        </div>
+    </form>
+    <!-- <p>{{discountDetails | json}}</p> -->
+</div>

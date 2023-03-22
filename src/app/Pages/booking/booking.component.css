@@ -1,0 +1,138 @@
+
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
+
+
+/*for timings slot*/
+.slot {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none; 
+   background: blanchedalmond;
+  padding: 20px 50px; 
+  margin-left: 500px;
+  margin-right: 500px;
+  margin-top: 20px;
+  border-radius: 5px;  
+  color: green; 
+}
+
+/*for 2D 3D movie type*/
+.movietype{
+  align-items: center;
+  margin-left: 200px 10px;
+  padding: 30px;
+  display: flex;
+  margin-right: 30px 40px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color:blue;
+}
+
+.movie-container {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+
+/*for screen*/
+.container {
+  perspective: 1000px;
+  margin: 4px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Available{
+  background-color: white;
+}
+.booked {
+  background-color: lawngreen;
+}
+
+.occupied {
+  background-color:red;
+}
+
+
+/*for selection row alignment*/
+.showcase {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  background: rgba(0,0,0,0.1);
+  padding: 1px 10px;
+  border-radius: 5px;
+  color: #777;
+}
+
+/*for selected and un selected*/
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  background:lightseagreen;
+  height: 20px;
+  width: 20%;
+  margin: 15px 0;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255,255,255,0.7);
+  margin-top: 20px;
+}
+
+
+/* .inner{
+  margin: auto;
+  padding: 30px 40px;
+} */
+
+.seat {
+
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  margin-top: 15px;
+  color: lavenderblush;
+  border: 3px solid;
+  border-radius: 2px;
+  padding: 0;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+
+.seat:nth-of-type(5) {
+  margin-right: 50px;
+  
+}
+
+.seat:not(.occupied):hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.bookingdate{
+  align-self: center;
+  margin-left: 600px;
+}
+.book{
+  align-self: center;
+  margin-left: 600px;
+}

@@ -1,0 +1,79 @@
+.info-container{
+    /* border: 1px solid black; */
+    margin: 2vh;
+}
+
+.info-heading{
+    margin-left: 2vw;
+}
+
+.navigation-button{
+    background-color: white;
+    color: rgb(106, 106, 255);
+    border: 1px solid rgb(106, 106, 255);
+    border-radius: 5px;
+    margin: 0 2vw;
+    width: 10vw;
+}
+
+.navigation-button:hover{
+    background-color: rgb(106, 106, 255);
+    color: white;
+}
+
+.reviews-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.reviews{
+    width: 30vw;
+    height: 30vh;
+    border: 1px solid rgb(174, 174, 174);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    order: 3;
+    margin: 1vh 1vw;
+}
+.button-container{
+    text-align: center;
+    margin: 2vh 0;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+    /* border: 2px solid red; */
+}
+
+.user-comment{
+    height: 75%;
+    /* border: 2px solid blue; */
+}
+
+.user-name{
+    display: inline-block;
+    width: 75%;
+    height: 100%;
+    font-size: large;
+    font-weight: 600;
+    margin-left: 2vw;
+    /* border: 2px solid green; */
+}
+
+.user-star{
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    color: red;
+    /* border: 2px solid green; */
+    margin: 0;
+}
+.star{
+    font-size: larger;
+    margin: 0;
+}

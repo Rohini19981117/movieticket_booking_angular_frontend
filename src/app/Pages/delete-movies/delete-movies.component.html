@@ -1,0 +1,26 @@
+
+<table >
+    <tr>
+    <th>Movie Genre</th>
+    <th>Movie Name</th>
+    <th>Duration</th>
+    <th>Certificate</th>
+    <th>Release Date</th>
+    <th>Description</th>
+    <!--<th>Image</th>-->
+    <th>Delete</th>
+    </tr>
+
+    <tr *ngFor="let movie of allMovie">
+       
+        <td>{{movie.movieGenre}}</td>
+        <td>{{movie.movieName}}</td>
+        <td>{{movie.duration}}</td>
+        <td>{{movie.certificate}}</td>
+        <td>{{movie.releaseDate}}</td>
+        <td>{{movie.description}}</td>
+
+        <!--<td><img src={{emp.image}} width="40px" heigh="40px"></td>-->
+        <td><button class="btn btn-danger" (click)="Ondelete(movie)">Delete</button></td>
+    </tr>
+</table>

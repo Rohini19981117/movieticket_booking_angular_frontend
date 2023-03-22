@@ -1,0 +1,20 @@
+h3{
+    text-align: center;
+}
+form{
+    margin: 20px;
+    width: 50%;
+}
+
+.upload{
+    width:100px;
+    position:relative;
+    margin: auto;
+    align-self: center;
+  }
+
+  .formalign
+  {
+    align-self: center;
+    margin-left: 30%;
+  }

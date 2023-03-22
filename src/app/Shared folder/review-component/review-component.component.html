@@ -1,0 +1,45 @@
+<div class="info-container">
+    <h3 class="info-heading">Reviews</h3>
+    <div class="reviews-container container">
+        <div class="col">
+            <div *ngIf="movieInformation?.reviews.length >= 1" class="reviews" >
+                <div class="user-info">
+                    <div class="user-star">
+                        <p class="star"> &#9733; {{movieInformation?.reviews[index1]?.stars}} &#47; 5 </p>
+                    </div>
+                </div>
+                <div class="user-comment">
+                    {{movieInformation?.reviews[index1]?.comment}}
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="movieInformation?.reviews.length >= 2" class="reviews" >
+                <div class="user-info">
+                    <div class="user-star">
+                        <p class="star"> &#9733; {{movieInformation?.reviews[index2]?.stars}} &#47; 5 </p>
+                    </div>
+                </div>
+                <div class="user-comment">
+                    {{movieInformation?.reviews[index2]?.comment}}
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div *ngIf="movieInformation?.reviews.length >= 3" class="reviews" >
+                <div class="user-info">
+                    <div class="user-star">
+                        <p class="star"> &#9733; {{movieInformation?.reviews[index3]?.stars}} &#47; 5 </p>
+                    </div>
+                </div>
+                <div class="user-comment">
+                    {{movieInformation?.reviews[index3]?.comment}}
+                </div>
+            </div>
+        </div>
+    </div>
+        <div [hidden]="movieInformation?.reviews.length <=3" class="button-container">
+            <button (click)="previous()" class="navigation-button">Previous</button>
+            <button (click)="next()" class="navigation-button">Next</button>
+        </div>
+</div>

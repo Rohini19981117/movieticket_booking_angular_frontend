@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing: border-box;
+}
+
+.info-container{
+    /* border: 1px solid black; */
+    margin: 2vh;
+}
+
+.info-heading{
+    margin-left: 2vw;
+}
+
+.display-container{
+    width: 60%;
+    margin: 2vh auto;
+    /* border: 0.5px solid green; */
+    background-color: white;
+    border-radius: 5px;
+}
+.display-info{
+    margin-top: 1vh;
+}
+
+.display-info:first-child{
+    margin-top: 2vh;
+}
+
+.display-info:last-child{
+    margin-bottom: 1vh ;
+}
+
+.text-parameter{
+    display: inline-block;
+    width: 30%;    
+    text-align: left;
+    margin-left: 5%;
+    font-weight: bold;
+}
+
+.small-info{
+    display: inline-block;
+    width: 60%;
+    margin: 0;
+}
+
+.form-group{
+    margin: 4vh 1vw;
+    /* border: 2px solid green; */
+}
+
+.form-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.form-control{
+    width: 60%;
+    /* border: 1px solid gray; */
+    border-radius: 0;
+    border-bottom: 5px solid red;
+}
+
+.form-input-text{
+    width: 20%;
+}
+
+.form-error{
+    padding: 0;
+    margin-bottom: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: small;
+    color: red;
+}
+
+.form-submit{
+    margin: 0 auto;
+}
+
+
+.show-seats-by-grp{
+    margin-bottom: 10px;
+}
+.premium{
+    display: inline;
+}
+
+.gold{
+    display: inline;
+}
+
+.silver{
+    display: inline;
+}
+
+.small-info-group{
+    /* border: 2px solid red; */
+    /* display:  inline-block; */
+    width: 75%;
+    margin-left: 35%;
+}
+
+.show-amount{
+    display: inline-block;
+    width: 60%;
+    margin: 0;
+}

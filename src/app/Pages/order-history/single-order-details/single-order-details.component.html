@@ -1,0 +1,59 @@
+
+    <div class="display-container">
+        <div class="display-info">
+            <p class="text-parameter">Movie Name </p> 
+            <p class="small-info">{{orderToDisplay.booking.movie.movieName}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Booking Time</p>
+            <p class="small-info">{{orderToDisplay.booking.bookingTime}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Booking Date</p>
+            <p class="small-info">{{orderToDisplay.booking.bookingDate}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Movie Duration</p>
+            <p class="small-info">{{orderToDisplay.booking.movie.duration}}</p>
+        </div>
+        <div class="display-info">
+            <p class="text-parameter">Seats Booked</p>
+            <div class="small-info-group">
+                <div class="show-seats-by-grp">
+                    <h6 class="small-info" style="display: block;">PREMIUM</h6>
+                    <p class="premium" *ngFor="let seat of premiumSeats">
+                        {{seat.seatRow + "-" + seat.seatNumber+ ", "}}
+                    </p>
+                </div>
+
+                <div class="show-seats-by-grp">
+                    <h6 class="small-info" style="display: block;">GOLD</h6>
+                    <p class="small-info gold" *ngFor="let seat of goldSeats">
+                        {{seat.seatRow + "-" + seat.seatNumber + ", "}}
+                    </p>
+                </div>
+
+                <div class="show-seats-by-grp">
+                    <h6 class="small-info" style="display: block;">SILVER</h6>
+                    <p class="small-info premium" *ngFor="let seat of silverSeats">
+                        {{seat.seatRow + "-" + seat.seatNumber + ", "}}
+                    </p>
+                </div>
+        </div>
+
+        <div class="display-info">
+            <p class="text-parameter">Card Type</p>
+            <p class="small-info">{{orderToDisplay.cardType}}</p>
+        </div>
+
+        <div class="display-info">
+            <p class="text-parameter">Bank</p>
+            <p class="small-info">{{orderToDisplay.discount.bankName}}</p>
+        </div>
+
+        <div class="display-info">
+            <p class="text-parameter">Amount</p>
+            <h2 class="show-amount">{{orderToDisplay.amount}}</h2>
+        </div>
+        
+    </div>

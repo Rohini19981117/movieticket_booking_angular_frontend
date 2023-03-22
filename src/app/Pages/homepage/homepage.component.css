@@ -1,0 +1,57 @@
+.info-container{
+    /* border: 2px solid red; */
+    border-radius: 20px;
+    /* background-color: rgb(231, 230, 230); */
+}
+
+
+.movie-card{
+    display: inline-block;
+    width:78%;
+    height: 350px;
+    /* border: 2px solid red; */
+    transition: transform .3s;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 5px 10px;
+    box-shadow: 5px 5px 20px rgb(49, 49, 49);
+}
+
+.movie-card:hover{
+    transform: scale(1.1);
+}
+
+.movie-image{
+    height: 90%;
+    width: 80%;
+    width: auto;
+    overflow: hidden;
+    /* border: 2px solid green; */
+}
+
+.movie-image img{
+    height: 100%;
+    width: 100%;
+}
+
+.movie-name{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+
+    /* border: 2px solid green; */
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.movie-name i{
+    background-color: inherit;
+    color: rgb(255, 0, 76);
+    margin-top: 2%;
+}
+
+.movie-name p{
+    background-color: inherit;
+    margin: 0 auto;
+}
